@@ -11,17 +11,18 @@ def main():
     x_points = []
     y_points = []
 
-    current_function = counter^2
-    reimann_style = input('Type "L" for left, "R" for right, "M" for middle, and "T" for trapazoid: ')
+    #reimann_style = input('Type "L" for left, "R" for right, "M" for middle, and "T" for trapazoid: ')
 
-    while counter < 20:
+    while counter < 21:
         
-        current_output = current_function
+        current_output = counter^2
 
         x_points.append(counter)
         y_points.append(current_output)
         
         counter = counter + 1
+    print(x_points)
+    print(y_points)
         
     ax.plot(x_points, y_points)
     plt.show()
