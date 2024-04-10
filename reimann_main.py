@@ -13,14 +13,16 @@ def main():
 
     while counter <= 10:
 
-        polynomial = counter**2 + 3*counter + 4
+        polynomial = counter**3 
 
         x_points.append(counter)
         y_points.append(polynomial)
 
         counter = counter + 1
-
+        
+        ax.plot(x_points, y_points)
         ax.plot(x_points, y_points, "ro")
+        
 
 
     #left_area = left_sum(y_points, seg_len)
