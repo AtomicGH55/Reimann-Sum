@@ -54,9 +54,24 @@ def trap_sum(y_points, seg_len):
 def main():
 
     fig, ax = plt.subplots()
-
+    x_points = []
+    y_points = []
+    seg_len = (1/10)
+    
     min_x = -10
     max_x = 10
+    counter = min_x
+
+    while counter <= max_x:
+
+            poly_point = polynomial(counter)
+
+            x_points.append(counter)
+            y_points.append(poly_point)
+
+            counter = counter + seg_len
+            
+            ax.plot(x_points, y_points)
     x_axis = [min_x, max_x]
     seg_ammount = 4
     seg_len = (max_x-min_x)/seg_ammount
@@ -64,7 +79,6 @@ def main():
     
     x_points = []
     y_points = []
-    g_width = []
     left_side_x = []
     left_side_y = []
     right_side_x = []
@@ -87,10 +101,42 @@ def main():
 
             counter = counter + seg_len
             
-            ax.plot(x_points, y_points)
             ax.plot(x_points, y_points, "ro")
         print(y_points)
         area = right_sum(y_points, seg_len)
+        #del x_points[0]
+        #del y_points[0]
+        for a in range(seg_ammount):
+            print(a)
+            left_side_x.append(x_points[a])
+            left_side_x.append(x_points[a])
+            left_side_y.append(0)
+            left_side_y.append(y_points[a])
+            right_side_x.append(x_points[a+1])
+            right_side_x.append(x_points[a+1])
+            right_side_y.append(0)
+            right_side_y.append(y_points[a])
+            top_x.append(x_points[a])
+            top_x.append(x_points[a+1])
+            top_y.append(y_points[a])
+            top_y.append(y_points[a])
+            print(left_side_x)
+            print(left_side_y)
+            print(right_side_x)
+            print(right_side_y)
+            print(top_x)
+            print(top_y)
+
+            ax.plot(left_side_x, left_side_y, "g")
+            ax.plot(right_side_x, right_side_y, "g")
+            ax.plot(top_x, top_y, "g")
+
+            left_side_x = []
+            left_side_y = []
+            right_side_x = []
+            right_side_y = []
+            top_x = []
+            top_y = []
 
     elif sum_choice == "l":
         while counter <= max_x:
@@ -102,10 +148,41 @@ def main():
 
             counter = counter + seg_len
             
-            ax.plot(x_points, y_points)
             ax.plot(x_points, y_points, "ro")
         print(y_points)
         area = left_sum(y_points, seg_len)
+
+        for a in range(seg_ammount):
+            print(a)
+            left_side_x.append(x_points[a])
+            left_side_x.append(x_points[a])
+            left_side_y.append(0)
+            left_side_y.append(y_points[a])
+            right_side_x.append(x_points[a+1])
+            right_side_x.append(x_points[a+1])
+            right_side_y.append(0)
+            right_side_y.append(y_points[a])
+            top_x.append(x_points[a])
+            top_x.append(x_points[a+1])
+            top_y.append(y_points[a])
+            top_y.append(y_points[a])
+            print(left_side_x)
+            print(left_side_y)
+            print(right_side_x)
+            print(right_side_y)
+            print(top_x)
+            print(top_y)
+
+            ax.plot(left_side_x, left_side_y, "g")
+            ax.plot(right_side_x, right_side_y, "g")
+            ax.plot(top_x, top_y, "g")
+
+            left_side_x = []
+            left_side_y = []
+            right_side_x = []
+            right_side_y = []
+            top_x = []
+            top_y = []
 
     elif sum_choice == "m":
         while counter <= max_x:
@@ -117,10 +194,44 @@ def main():
 
             counter = counter + seg_len
             
-            ax.plot(x_points, y_points)
             ax.plot(x_points, y_points, "ro")
         print(y_points)
         area = mid_sum(x_points, seg_len)
+
+        del x_points[0]
+        del y_points[0]
+
+        for a in range(seg_ammount-1):
+            print(a)
+            left_side_x.append(x_points[a]-(seg_len/2))
+            left_side_x.append(x_points[a]-(seg_len/2))
+            left_side_y.append(0)
+            left_side_y.append(y_points[a])
+            right_side_x.append(x_points[a+1]-(seg_len/2))
+            right_side_x.append(x_points[a+1]-(seg_len/2))
+            right_side_y.append(0)
+            right_side_y.append(y_points[a])
+            top_x.append(x_points[a]-(seg_len/2))
+            top_x.append(x_points[a+1]-(seg_len/2))
+            top_y.append(y_points[a])
+            top_y.append(y_points[a])
+            print(left_side_x)
+            print(left_side_y)
+            print(right_side_x)
+            print(right_side_y)
+            print(top_x)
+            print(top_y)
+
+            ax.plot(left_side_x, left_side_y, "g")
+            ax.plot(right_side_x, right_side_y, "g")
+            ax.plot(top_x, top_y, "g")
+
+            left_side_x = []
+            left_side_y = []
+            right_side_x = []
+            right_side_y = []
+            top_x = []
+            top_y = []
 
     elif sum_choice == "t":
         while counter <= max_x:
@@ -132,11 +243,42 @@ def main():
 
             counter = counter + seg_len
             
-            ax.plot(x_points, y_points)
             ax.plot(x_points, y_points, "ro")
         print(y_points)
-        area = trap_sum(y_points, seg_len)
+        for a in range(seg_ammount):
+            print(a)
+            left_side_x.append(x_points[a])
+            left_side_x.append(x_points[a])
+            left_side_y.append(0)
+            left_side_y.append(y_points[a])
+            right_side_x.append(x_points[a+1])
+            right_side_x.append(x_points[a+1])
+            right_side_y.append(0)
+            right_side_y.append(y_points[a+1])
+            top_x.append(x_points[a])
+            top_x.append(x_points[a+1])
+            top_y.append(y_points[a])
+            top_y.append(y_points[a+1])
+            print(left_side_x)
+            print(left_side_y)
+            print(right_side_x)
+            print(right_side_y)
+            print(top_x)
+            print(top_y)
 
+            ax.plot(left_side_x, left_side_y, "g")
+            ax.plot(right_side_x, right_side_y, "g")
+            ax.plot(top_x, top_y, "g")
+
+            left_side_x = []
+            left_side_y = []
+            right_side_x = []
+            right_side_y = []
+            top_x = []
+            top_y = []
+
+        area = trap_sum(y_points, seg_len)
+        
     ax.plot(x_axis, [0,0])
     print("Area =", area)
     plt.show()
