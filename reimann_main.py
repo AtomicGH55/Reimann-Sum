@@ -73,7 +73,7 @@ def main():
             
             ax.plot(x_points, y_points)
     x_axis = [min_x, max_x]
-    seg_ammount = 4
+    seg_ammount = 10
     seg_len = (max_x-min_x)/seg_ammount
     
     
