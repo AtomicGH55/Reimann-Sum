@@ -1,4 +1,5 @@
 import matplotlib.pyplot as plt
+import numpy as np
 
 def polynomial(counter):
 
@@ -57,12 +58,13 @@ def main():
     min_x = -10
     max_x = 10
     x_axis = [min_x, max_x]
-    seg_ammount = 10
+    seg_ammount = 4
     seg_len = (max_x-min_x)/seg_ammount
     
     
     x_points = []
     y_points = []
+    g_width = []
     left_side_x = []
     left_side_y = []
     right_side_x = []
@@ -134,7 +136,6 @@ def main():
             ax.plot(x_points, y_points, "ro")
         print(y_points)
         area = trap_sum(y_points, seg_len)
-
 
     ax.plot(x_axis, [0,0])
     print("Area =", area)
